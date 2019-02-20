@@ -17,6 +17,16 @@ class DataCompanyController extends ApiController
         $dtime = $request->dtime;
         $name = $request->name;
 
+        if(!$code){
+            return $this->failed('存储失败，code不能为空');
+        }
+        if(!$dtime){
+            return $this->failed('存储失败，dtime不能为空');
+        }
+        if(!$name){
+            return $this->failed('存储失败，name不能为空');
+        }
+
         $DataCompany = new DataCompany();
         $DataCompany->code = $code;
         $DataCompany->dtime = $dtime;
