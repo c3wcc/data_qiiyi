@@ -50,7 +50,7 @@ class AutoHandleController extends ApiController
             $DataCompanyAbnormalAddress->code = $company->code;
             $DataCompanyAbnormalAddress->name = $company->name;
             $DataCompanyAbnormalAddress->id = $id;
-            $DataCompanyAbnormalAddress->dtime = $company->dtime;
+            $DataCompanyAbnormalAddress->dtime = $this->deal_time($company->dtime);
             $r = $DataCompanyAbnormalAddress->save();
 
             if($r == true){
@@ -61,4 +61,11 @@ class AutoHandleController extends ApiController
         return $this->success($company->id);
     }
 
+
+    /**
+     * 处理时间
+     */
+    private function deal_time($time){
+        return str_replace("T"," ",$time);
+    }
 }
