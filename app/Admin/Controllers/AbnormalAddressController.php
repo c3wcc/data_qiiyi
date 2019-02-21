@@ -4,7 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\ExcelExpoter;
 use App\Http\Controllers\Controller;
-use App\Models\AbnormalAddress;
+use App\Models\DataCompanyAbnormalAddress;
 use App\Models\Seller;
 use App\Models\School;
 use Encore\Admin\Controllers\HasResourceActions;
@@ -36,7 +36,7 @@ class AbnormalAddressController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new AbnormalAddress);
+        $grid = new Grid(new DataCompanyAbnormalAddress);
        
         $grid->name('异常公司名');
         $grid->dtime('列入异常时间')->sortable();
