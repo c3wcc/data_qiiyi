@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\DataCompany;
 use App\Models\DataCompanyList;
+use App\Models\DataCompanyAbnormalAddress;
 use Illuminate\Http\Request;
 
 /**
@@ -17,7 +18,7 @@ class AutoHandleController extends ApiController
      */
     public function add_list(Request $request)
     {
-        $data = DataCompany::limit(10)->get();
+        $company = DataCompany::first();
 
         $id = $this->create_code();
 
@@ -40,10 +41,24 @@ class AutoHandleController extends ApiController
         $DataCompanyList = new DataCompanyList();
 
         $DataCompanyList->id = $id;
+        $DataCompanyList->name = $company->name;
+        $res = $DataCompanyList->save();
+        if($res == true){
+            //成功
+            //增加异常表
+            $DataCompanyAbnormalAddress = new DataCompanyAbnormalAddress();
+            $DataCompanyAbnormalAddress->code = $company->code;
+            $DataCompanyAbnormalAddress->name = $company->name;
+            $DataCompanyAbnormalAddress->id = $id;
+            $DataCompanyAbnormalAddress->dtime = $company->dtime;
+            $r = $DataCompanyAbnormalAddress->save();
 
-        
+            if($r == true){
+                DataCompany::where(['id'=>$company->id])->delete();
+            }
+        }
 
-        return $this->success($id);
+        return $this->success($company->id);
     }
 
 }
