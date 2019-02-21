@@ -17,7 +17,10 @@ Route::group([
     $router->resource('store', StoreController::class);
     $router->resource('food/category', FoodCategoryController::class);
     $router->resource('food', FoodListController::class);
-    $router->resource('school', SchoolController::class);
 
+    //地址异常
+    $router->resource('abnormal/address', AbnormalAddressController::class);
+    $router->resource('abnormal/management', AbnormalManagementController::class);
+    
 
 });

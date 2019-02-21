@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\DataCompany;
+use App\Models\DataCompanyList;
 use Illuminate\Http\Request;
 
 class DataCompanyController extends ApiController

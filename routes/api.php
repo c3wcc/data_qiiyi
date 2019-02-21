@@ -44,5 +44,5 @@ Route::namespace ('Api')->group(function () {
     });
 
     //外卖店铺列表
-    Route::get('/data/add', 'DataCompanyController@add');
+    Route::get('/auto/add_list', 'AutoHandleController@add_list');
 });

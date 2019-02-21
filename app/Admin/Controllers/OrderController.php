@@ -40,14 +40,14 @@ class OrderController extends Controller
 
         $grid->model()->orderBy('order_id','desc');
         $grid->seller_id('所属店铺')->display(function($value){
-            return Seller::get_seller_name($value);
+            // return Seller::get_seller_name($value);
         })->sortable();
         $grid->order_id('订单ID');
         $grid->order_sn('订单编号')->sortable();
         $grid->pay_price('支付余额');
-        $grid->school('学校')->display(function($value){
-            return School::get_school_name($value);
-        })->sortable();
+        // $grid->school('学校')->display(function($value){
+        //     return School::get_school_name($value);
+        // })->sortable();
         $grid->user_id('用户ID');
         $grid->pay_status('支付状态')->display(function($value){
             return $value ? '<span style="color: green;background: gold;padding: 1px 6px;font-weight: 600;">已支付</span>' : '未支付';
