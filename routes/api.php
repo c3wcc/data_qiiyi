@@ -43,6 +43,10 @@ Route::namespace ('Api')->group(function () {
         Route::get('/user/userinfo', 'UserController@userinfo'); //用户信息
     });
 
-    //外卖店铺列表
-    Route::get('/auto/add_list', 'AutoHandleController@add_list');
+    //自动处理
+    Route::any('/auto/add_list', 'AutoHandleController@add_list');
+
+    //公司数据
+    Route::any('/data/add', 'DataCompanyController@add');
+
 });
