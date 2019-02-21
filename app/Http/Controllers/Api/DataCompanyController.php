@@ -22,10 +22,10 @@ class DataCompanyController extends ApiController
             return $this->failed('存储失败，code不能为空');
         }
 
-        $cunzai1 = DataCompanyList::where(['code'=>$code])->first();
-        if($cunzai1){
-            return $this->failed('已经存在');
-        }
+        // $cunzai1 = DataCompanyList::where(['code'=>$code])->first();
+        // if($cunzai1){
+        //     return $this->failed('已经存在');
+        // }
 
         $cunzai = DataCompany::where(['code'=>$code])->first();
         if($cunzai){
