@@ -14,12 +14,26 @@ class AutoHandleController extends ApiController
 {
 
     /**
-     * 增加数据
+     * 批量处理
      */
     public function add_list(Request $request)
     {
-        $company = DataCompany::first();
+        $company = DataCompany::limit(50)->get();
 
+        foreach($company as $key => $val){
+
+            $res = $this->add($val);
+            echo $res.',';
+        }
+
+    }
+
+
+    /**
+     * 处理数据
+     */
+    public function add($company)
+    {
         $id = $this->create_code();
 
         $exit = DataCompany::where(['id'=>$id])->first();
@@ -58,7 +72,7 @@ class AutoHandleController extends ApiController
             }
         }
 
-        return $this->success($company->id);
+        return $company->id;
     }
 
 
