@@ -14,7 +14,7 @@ class DataHandleController extends Controller
 
 
     
-    public function add_contact(Content $content)
+    public function add_contact()
     {
         echo "444";
     }

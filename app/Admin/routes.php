@@ -24,7 +24,7 @@ Route::group([
     
 
     //数据处理
-    $router->resource('data/add_contact', 'DataHandleController@add_contact');
+    $router->any('data/add_contact', 'DataHandleController@add_contact');
 
     
 
