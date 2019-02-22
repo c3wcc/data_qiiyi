@@ -38,6 +38,8 @@ class AutoHandleController extends ApiController
 
         $exit = DataCompany::where(['id'=>$id])->first();
 
+        
+
         if($exit){
             $id = $this->create_code();
             $exit = DataCompany::where(['id'=>$id])->first();
@@ -57,6 +59,10 @@ class AutoHandleController extends ApiController
         $DataCompanyList->id = $id;
         $DataCompanyList->name = $company->name;
         $res = $DataCompanyList->save();
+
+
+
+
         if($res == true){
             //成功
             //增加异常表

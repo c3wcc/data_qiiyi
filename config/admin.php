@@ -251,7 +251,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => '/storage/login_bg.jpg',
+    'login_background_image' => '',
 
     /*
     |--------------------------------------------------------------------------

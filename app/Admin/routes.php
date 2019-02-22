@@ -23,4 +23,9 @@ Route::group([
     $router->resource('abnormal/management', AbnormalManagementController::class);
     
 
+    //数据处理
+    $router->resource('data/add_contact', 'DataHandleController@add_contact');
+
+    
+
 });

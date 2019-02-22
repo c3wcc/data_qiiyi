@@ -6,14 +6,13 @@ use App\Models\School;
 
 class TestController extends ApiController
 {
-
     public function index()
     {
 
-        $school = new School();
-        $test = $school->first();
+        $articles = \DB::select('SELECT `name` FROM `data_company_list` GROUP BY `name` HAVING count(`name`) > 1 ');
+        
 
-        return $this->success($test);
+        return $this->success($articles);
     }
 
 }
