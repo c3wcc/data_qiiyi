@@ -18,7 +18,7 @@ class AutoHandleController extends ApiController
      */
     public function add_list(Request $request)
     {
-        $company = DataCompany::limit(50)->get();
+        $company = DataCompany::limit(100)->get();
 
         foreach($company as $key => $val){
 
