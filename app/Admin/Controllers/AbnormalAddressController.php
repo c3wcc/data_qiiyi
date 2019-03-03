@@ -10,6 +10,7 @@ use App\Models\School;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
+use App\Services\NumberService;
 
 class AbnormalAddressController extends Controller
 {
@@ -38,7 +39,14 @@ class AbnormalAddressController extends Controller
     {
         $grid = new Grid(new DataCompanyAbnormalAddress);
        
+        $grid->model()->orderby('dtime','desc');
+
         $grid->name('异常公司名');
+
+        $grid->column('号码')->display(function () {
+            return NumberService::get_number($this->name);
+        });
+        
         $grid->dtime('列入异常时间')->sortable();
         
         $grid->disableCreateButton();
