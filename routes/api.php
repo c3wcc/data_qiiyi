@@ -46,7 +46,9 @@ Route::namespace ('Api')->group(function () {
     //自动处理
     Route::any('/auto/add_list', 'AutoHandleController@add_list');
 
-    //公司数据
-    Route::any('/data/add', 'DataCompanyController@add');
+    //open
+    Route::any('/data/add', 'OpenController@add');
+    Route::any('/data/getname', 'OpenController@get_name');
+    Route::any('/data/savemobile', 'OpenController@save_mobile');
 
 });

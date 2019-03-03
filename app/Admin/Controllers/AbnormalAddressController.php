@@ -44,7 +44,7 @@ class AbnormalAddressController extends Controller
         $grid->name('异常公司名');
 
         $grid->column('号码')->display(function () {
-            return NumberService::get_number($this->name);
+            return NumberService::get_number($this->name,$this->name);
         });
         
         $grid->dtime('列入异常时间')->sortable();

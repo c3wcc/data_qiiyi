@@ -2,14 +2,17 @@
 
 namespace App\Services;
 
+use App\Models\DataCompanyList;
 use App\Models\AdminConfig;
 use Carbon\Carbon;
 
 class NumberService
 {
     
-    public static function get_number($name){
+    public static function get_number($id,$name){
         
+        $number = DataCompanyList::where(['id'=>$id])->value('');
+
         return "<a href=https://www.qichacha.com/search?key=".$name." target='_blank'><div class='btn btn-sm btn-success'>获取号码</div></a>";
     }
 

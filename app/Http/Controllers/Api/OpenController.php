@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\DataCompany;
+use App\Models\DataCompanyList;
+use App\Models\DataCompanyContact;
 use App\Models\DataCompanyAbnormalAddress;
 use Illuminate\Http\Request;
 
-class DataCompanyController extends ApiController
+class OpenController extends ApiController
 {
 
     /**
@@ -51,4 +53,48 @@ class DataCompanyController extends ApiController
         return $this->success('存储成功，共'.$sum.'条数据');
     }
 
+
+    /**
+     * 获取公司名
+     */
+    public function get_name(){
+        $cunzai = DataCompanyAbnormalAddress::orderby('dtime','desc')->select('firm_id','name')->first();
+        return $this->success($cunzai);
+    }
+
+    /**
+     * 保存号码
+     */
+    public function save_mobile(Request $request){
+        $mobile = $request->mobile;
+        if(!$mobile){
+            return $this->failed('mobile不能为空');
+        }
+
+        $id = $request->id;
+        if(!$id){
+            return $this->failed('id不能为空');
+        }
+
+        $list = DataCompanyList::where(['firm_id'=>$id])->first();
+        if(!$list){
+            return $this->failed('公司不存在');
+        }
+
+        $model = new DataCompanyContact();
+
+        $yiyang = $model->where(['firm_id'=>$id,'mobile'=>$mobile])->first();
+        if($yiyang){
+            return $this->success('保存成功,已存在');
+        }
+
+        $model->firm_id = $id;
+        $model->name = $list->name;
+        $model->mobile = $mobile;
+
+        $model->save();
+        return $this->success('保存成功');
+
+
+    }
 }
