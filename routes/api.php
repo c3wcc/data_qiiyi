@@ -52,3 +52,5 @@ Route::namespace ('Api')->group(function () {
     Route::any('/data/savemobile', 'OpenController@save_mobile');
 
 });
+
+

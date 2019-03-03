@@ -20,3 +20,7 @@ route::get('sendsmscode', 'Services\SmsSendController@send');
 
 //统一用户ID，account用户体系
 route::any('unique_id', 'Api\UserController@unique_id');
+
+//home
+route::any('home/info', 'Home\InfoController@index');
+route::any('home/info/add', 'Home\InfoController@add');
