@@ -46,13 +46,13 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 48px;
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 26px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -74,8 +74,8 @@
 
                 <div class="links">
                     <a href="/admin">管理后台</a>
-                    <!-- <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
+                    <a href="/home/info">补充号码</a>
+                    <!--<a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>
