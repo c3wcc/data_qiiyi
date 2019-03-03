@@ -58,7 +58,7 @@ class OpenController extends ApiController
      * 获取公司名
      */
     public function get_name(){
-        $cunzai = DataCompanyAbnormalAddress::orderby('dtime','desc')->select('firm_id','name')->first();
+        $cunzai = DataCompanyAbnormalAddress::where(['has_mobile'=>0])->orderby('dtime','desc')->select('firm_id','name')->first();
         return $this->success($cunzai);
     }
 
@@ -93,8 +93,9 @@ class OpenController extends ApiController
         $model->mobile = $mobile;
 
         $model->save();
+
+        DataCompanyAbnormalAddress::where(['firm_id'=>$id])->update(['has_mobile'=>1]);
+
         return $this->success('保存成功');
-
-
     }
 }
