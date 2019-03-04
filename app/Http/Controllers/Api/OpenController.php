@@ -85,7 +85,7 @@ class OpenController extends ApiController
 
         $yiyang = $model->where(['firm_id'=>$id,'mobile'=>$mobile])->first();
         if($yiyang){
-            return $this->success('保存成功,已存在');
+            return $this->success($yiyang->name.'保存成功,已存在');
         }
 
         $model->firm_id = $id;
@@ -96,6 +96,6 @@ class OpenController extends ApiController
 
         DataCompanyAbnormalAddress::where(['firm_id'=>$id])->update(['has_mobile'=>1]);
 
-        return $this->success('保存成功');
+        return $this->success($list->name.'保存成功');
     }
 }

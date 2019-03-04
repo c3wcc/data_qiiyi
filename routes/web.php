@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::any('/', 'Home\IndexController@index');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //发送短信
 route::get('sendsmscode', 'Services\SmsSendController@send');

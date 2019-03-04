@@ -69,13 +69,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                有戏企业数据库
+                有戏企业数据库（{{$count}}）
                 </div>
 
                 <div class="links">
                     <a href="/admin">管理后台</a>
                     <a href="/home/info">补充号码</a>
-                    <!--<a href="https://laravel-news.com">News</a>
+                    <a href="https://doc.c3w.cc/web/#/17?page_id=228">接口文档</a>
+
+                    <!--
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>
