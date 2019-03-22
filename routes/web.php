@@ -27,3 +27,8 @@ route::any('unique_id', 'Api\UserController@unique_id');
 //home
 route::any('home/info', 'Home\InfoController@index');
 route::any('home/info/add', 'Home\InfoController@add');
+
+
+Route::prefix('mobile')->group(function () {
+    Route::get('/', 'Mobile\IndexController@index');
+});

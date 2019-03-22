@@ -51,6 +51,11 @@ Route::namespace ('Api')->group(function () {
     Route::any('/data/getname', 'OpenController@get_name');
     Route::any('/data/savemobile', 'OpenController@save_mobile');
 
+
+    Route::get('/mobile', 'MobileController@index');
+
+
 });
+
 
 
