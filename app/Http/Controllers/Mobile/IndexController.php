@@ -11,7 +11,11 @@ class IndexController extends ApiController
 
     public function index()
     {
-        echo 'mobile';
+
+
+        $data = [];
+
+        return view('mobile/index/index', $data);
     }
 
 }
