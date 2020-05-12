@@ -9,22 +9,30 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 
-class IndexController extends Controller
+class LoginController extends Controller
 {
 
+
+    /**
+     * 登录页
+     */
     public function index()
     {
 
-        //获取session里的数据
-        $openid = Session::get('openid');
-        if(!$openid){
-            return redirect("mobile/login");
-        }
+        // Session::put('key3','value3');
 
-      
+        // $k = Session::get('key3');
+        //  echo $k;
+ 
+        //  dd($openid);
+ 
+ 
+        
+
+
         $data = [];
 
-        return view('mobile/index/index', $data);
+        return view('mobile/login/index', $data);
     }
 
 }

@@ -31,4 +31,8 @@ route::any('home/info/add', 'Home\InfoController@add');
 
 Route::prefix('mobile')->group(function () {
     Route::get('/', 'Mobile\IndexController@index');
+    Route::get('/login', 'Mobile\LoginController@index');
+
+   
+
 });
